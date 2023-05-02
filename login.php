@@ -11,13 +11,9 @@ if(isset($_POST["Login"])) {
     if(mysqli_num_rows($success) > 0) {
         $user_info = mysqli_fetch_assoc($success); // get user info
 
-        // header("Location: profile.php?username=" . urlencode(base64_encode($user_info['user_name'])) . "&email=" . urlencode($user_info['user_email']) . "&userid=" . urlencode($user_info['user_id']) . "&userimage=$user_info['user_profile'])");
-
-        header("Location: profile.php?username=" . urlencode(base64_encode($user_info['user_name'])). "&firstname=" . urlencode($user_info['first_name']). "&lastname=" . urlencode($user_info['last_name']). "&address=" . urlencode($user_info['user_address']) . "&email=" . urlencode($user_info['user_email']) . "&userid=" . urlencode($user_info['user_id']) . "&userimage=" . $user_info['user_profile']);
-
-
         //header("Location: profile.php?username={$user_info['user_name']}&email={$user_info['user_email']}&userid={$user_info['user_id']}"); // pass user information as query parameter
 
+        header("Location: profile.php?username=" . urlencode(base64_encode($user_info['user_name'])). "&firstname=" . urlencode($user_info['first_name']). "&lastname=" . urlencode($user_info['last_name']). "&address=" . urlencode($user_info['user_address']) . "&email=" . urlencode($user_info['user_email']) . "&userid=" . urlencode($user_info['user_id']) . "&userimage=" . $user_info['user_profile']);
 
         exit();
     } else {
